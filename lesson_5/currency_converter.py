@@ -23,6 +23,6 @@ class Currency_converter:
         else:
             raise ValueError("Conversion rate not available")
 
-
+# Example usage
 currency_converter = Currency_converter()
 print(currency_converter.conversion("EUR", "USD", 10))
