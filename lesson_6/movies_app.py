@@ -2,8 +2,15 @@ import json
 
 JSON_FILE = "movies_database.json"
 
-# Read a movie from a JSON file using the movie id
 def read_movie_from_json_file(file_path: str, movie_id: int):
+    ''' 
+    Read a movie from a JSON file using the movie id
+    Parameters:
+    - file_path: str : path to the JSON file
+    - movie_id: int : id of the movie to be read
+    Returns:
+    - dict : movie data if found, else error message    
+    '''
     try:
         with open(file_path, 'r') as file:
             movies = json.load(file)
@@ -14,8 +21,14 @@ def read_movie_from_json_file(file_path: str, movie_id: int):
     except FileNotFoundError:
         return {"error": "File not found"}
     
-# read all movies from a JSON file
 def read_all_movies_from_json_file(file_path: str):
+    '''
+    Read all movies from a JSON file
+    Parameters:
+    - file_path: str : path to the JSON file
+    Returns:
+    - list : list of all movies if file found, else error message    
+    '''
     try:
         with open(file_path, 'r') as file:
             movies = json.load(file)
@@ -23,10 +36,17 @@ def read_all_movies_from_json_file(file_path: str):
     except FileNotFoundError:
         return {"error": "File not found"}
 
-# create a movie data in a JSON file
-# If same movie id exists, update the existing movie data
-# with the new one, thereby avoiding duplicates
 def write_movie_to_json_file(file_path: str, movie: dict):
+    '''
+    Create a movie data in a JSON file
+    If same movie id exists, update the existing movie data
+    with the new one, thereby avoiding duplicates
+    Parameters:
+    - file_path: str : path to the JSON file
+    - movie: dict : movie data to be written
+    Returns:
+    - dict : movie data if written successfully, else error message    
+    '''
     try:
         with open(file_path, 'r+') as file:
             movies = json.load(file)
@@ -44,8 +64,16 @@ def write_movie_to_json_file(file_path: str, movie: dict):
     except FileNotFoundError:
         return {"error": "File not found"}
     
-# update a movie data in a JSON file using the movie id
 def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
+    '''
+    Update a movie data in a JSON file using the movie id
+    Parameters:
+    - file_path: str : path to the JSON file
+    - movie_id: int : id of the movie to be updated
+    - movie: dict : updated movie data
+    Returns:
+    - dict : updated movie data if found and updated, else error message    
+    '''
     try:
         with open(file_path, 'r+') as file:
             movies = json.load(file)
@@ -60,8 +88,15 @@ def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
     except FileNotFoundError:
         return {"error": "File not found"}
 
-# delete a movie data from a JSON file using the movie id
 def delete_movie_from_json_file(file_path: str, movie_id: int):
+    '''
+    Delete a movie data from a JSON file using the movie id
+    Parameters:
+    - file_path: str : path to the JSON file
+    - movie_id: int : id of the movie to be deleted
+    Returns:
+    - dict : deleted movie data if found and deleted, else error message    
+    '''
     try:
         with open(file_path, 'r+') as file:
             movies = json.load(file)
@@ -85,29 +120,29 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome to Nithin-flix"}
 
-# Read all the movies
 @app.get("/movies")
 def get_movies():
+    ''' Read all movies '''
     return read_all_movies_from_json_file(JSON_FILE)
 
-# Read a movie by id
 @app.get("/movies/{movie_id}")
 def get_movie(movie_id: int):
+    ''' Read a movie by id '''
     return read_movie_from_json_file(JSON_FILE, movie_id)
 
-# create a movie
 @app.post("/movies")
 def create_movie(movie: dict):
+    ''' Create a movie '''
     return write_movie_to_json_file(JSON_FILE, movie)
 
-# Update a movie by id
 @app.put("/movies/{movie_id}")
 def update_movie(movie_id: int, movie: dict):
+    ''' Update a movie by id '''
     return update_movie_in_json_file(JSON_FILE, movie_id, movie)
 
-# delete a movie by id
 @app.delete("/movies/{movie_id}")
 def delete_movie(movie_id: int):
+    ''' Delete a movie by id '''
     return delete_movie_from_json_file(JSON_FILE, movie_id)
 
 if __name__ == "__main__":
