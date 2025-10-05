@@ -9,7 +9,7 @@ def read_movie_from_json_file(file_path: str, movie_id: int):
     - file_path: str : path to the JSON file
     - movie_id: int : id of the movie to be read
     Returns:
-    - dict : movie data if found, else error message    
+    - dict : movie data if found
     '''
     try:
         with open(file_path, 'r') as file:
@@ -17,9 +17,9 @@ def read_movie_from_json_file(file_path: str, movie_id: int):
             for movie in movies:
                 if movie['id'] == movie_id:
                     return movie
-            return {"error": "Movie not found"}
+            raise ValueError("Movie not found")
     except FileNotFoundError:
-        return {"error": "File not found"}
+        raise FileNotFoundError("File not found")
     
 def read_all_movies_from_json_file(file_path: str):
     '''
@@ -27,14 +27,14 @@ def read_all_movies_from_json_file(file_path: str):
     Parameters:
     - file_path: str : path to the JSON file
     Returns:
-    - list : list of all movies if file found, else error message    
+    - list : list of all movies if file found
     '''
     try:
         with open(file_path, 'r') as file:
             movies = json.load(file)
             return movies
     except FileNotFoundError:
-        return {"error": "File not found"}
+        raise FileNotFoundError("File not found")
 
 def write_movie_to_json_file(file_path: str, movie: dict):
     '''
@@ -45,7 +45,7 @@ def write_movie_to_json_file(file_path: str, movie: dict):
     - file_path: str : path to the JSON file
     - movie: dict : movie data to be written
     Returns:
-    - dict : movie data if written successfully, else error message    
+    - dict : movie data if written successfully 
     '''
     try:
         with open(file_path, 'r+') as file:
@@ -62,7 +62,7 @@ def write_movie_to_json_file(file_path: str, movie: dict):
             json.dump(movies, file, indent=4)
             return movie
     except FileNotFoundError:
-        return {"error": "File not found"}
+        raise FileNotFoundError("File not found")
     
 def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
     '''
@@ -72,7 +72,7 @@ def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
     - movie_id: int : id of the movie to be updated
     - movie: dict : updated movie data
     Returns:
-    - dict : updated movie data if found and updated, else error message    
+    - dict : updated movie data if found and updated
     '''
     try:
         with open(file_path, 'r+') as file:
@@ -84,9 +84,9 @@ def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
                     json.dump(movies, file, indent=4)
                     file.truncate()
                     return movie
-            return {"error": "Movie not found"}
+            raise ValueError("Movie not found")
     except FileNotFoundError:
-        return {"error": "File not found"}
+        raise FileNotFoundError("File not found")
 
 def delete_movie_from_json_file(file_path: str, movie_id: int):
     '''
@@ -95,7 +95,7 @@ def delete_movie_from_json_file(file_path: str, movie_id: int):
     - file_path: str : path to the JSON file
     - movie_id: int : id of the movie to be deleted
     Returns:
-    - dict : deleted movie data if found and deleted, else error message    
+    - dict : deleted movie data if found and deleted
     '''
     try:
         with open(file_path, 'r+') as file:
@@ -107,9 +107,9 @@ def delete_movie_from_json_file(file_path: str, movie_id: int):
                     json.dump(movies, file, indent=4)
                     file.truncate()
                     return deleted_movie
-            return {"error": "Movie not found"}
+            raise ValueError("Movie not found")
     except FileNotFoundError:
-        return {"error": "File not found"}
+        raise FileNotFoundError("File not found")
 
 from fastapi import FastAPI
 import uvicorn
