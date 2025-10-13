@@ -1,135 +1,482 @@
 [
     {
-        "id": 1,
-        "title": "Inception",
-        "genre": [
-            "Sci-Fi",
-            "Thriller"
+        "Title": "Inception",
+        "Year": "2010",
+        "Rated": "PG-13",
+        "Released": "16 Jul 2010",
+        "Runtime": "148 min",
+        "Genre": "Action, Adventure, Sci-Fi",
+        "Director": "Christopher Nolan",
+        "Writer": "Christopher Nolan",
+        "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+        "Plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+        "Language": "English, Japanese, French",
+        "Country": "United States, United Kingdom",
+        "Awards": "Won 4 Oscars. 159 wins & 220 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "87%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
         ],
-        "year": 2010,
-        "rating": 8.8,
-        "director": "Christopher Nolan"
+        "Metascore": "74",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,731,250",
+        "imdbID": "tt1375666",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$292,587,330",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 2,
-        "title": "The Shawshank Redemption",
-        "genre": [
-            "Drama"
+        "Title": "The Shawshank Redemption",
+        "Year": "1994",
+        "Rated": "R",
+        "Released": "14 Oct 1994",
+        "Runtime": "142 min",
+        "Genre": "Drama",
+        "Director": "Frank Darabont",
+        "Writer": "Stephen King, Frank Darabont",
+        "Actors": "Tim Robbins, Morgan Freeman, Bob Gunton",
+        "Plot": "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence and trying to remain hopeful through simple compassion.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "Nominated for 7 Oscars. 21 wins & 42 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "89%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "82/100"
+            }
         ],
-        "year": 1994,
-        "rating": 9.3,
-        "director": "Frank Darabont"
+        "Metascore": "82",
+        "imdbRating": "9.3",
+        "imdbVotes": "3,104,274",
+        "imdbID": "tt0111161",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$28,767,189",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 3,
-        "title": "The Dark Knight",
-        "genre": [
-            "Action",
-            "Crime",
-            "Drama"
+        "Title": "The Dark Knight",
+        "Year": "2008",
+        "Rated": "PG-13",
+        "Released": "18 Jul 2008",
+        "Runtime": "152 min",
+        "Genre": "Action, Crime, Drama",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+        "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart",
+        "Plot": "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman, James Gordon and Harvey Dent must work together to put an end to the madness.",
+        "Language": "English, Mandarin",
+        "Country": "United States, United Kingdom",
+        "Awards": "Won 2 Oscars. 163 wins & 165 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "94%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "85/100"
+            }
         ],
-        "year": 2008,
-        "rating": 9.0,
-        "director": "Christopher Nolan"
+        "Metascore": "85",
+        "imdbRating": "9.1",
+        "imdbVotes": "3,074,817",
+        "imdbID": "tt0468569",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$534,987,076",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 4,
-        "title": "Pulp Fiction",
-        "genre": [
-            "Crime",
-            "Drama"
+        "Title": "Pulp Fiction",
+        "Year": "1994",
+        "Rated": "R",
+        "Released": "14 Oct 1994",
+        "Runtime": "154 min",
+        "Genre": "Crime, Drama",
+        "Director": "Quentin Tarantino",
+        "Writer": "Quentin Tarantino, Roger Avary",
+        "Actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+        "Plot": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "Language": "English, Spanish, French",
+        "Country": "United States",
+        "Awards": "Won 1 Oscar. 69 wins & 72 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "92%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "95/100"
+            }
         ],
-        "year": 1994,
-        "rating": 8.9,
-        "director": "Quentin Tarantino"
+        "Metascore": "95",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,371,438",
+        "imdbID": "tt0110912",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$107,928,762",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 5,
-        "title": "The Lord of the Rings: The Return of the King",
-        "genre": [
-            "Adventure",
-            "Fantasy"
+        "Title": "The Lord of the Rings: The Return of the King",
+        "Year": "2003",
+        "Rated": "PG-13",
+        "Released": "17 Dec 2003",
+        "Runtime": "201 min",
+        "Genre": "Adventure, Drama, Fantasy",
+        "Director": "Peter Jackson",
+        "Writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+        "Actors": "Elijah Wood, Viggo Mortensen, Ian McKellen",
+        "Plot": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+        "Language": "English, Quenya, Old English, Sindarin",
+        "Country": "New Zealand, United States",
+        "Awards": "Won 11 Oscars. 215 wins & 124 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "94%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "94/100"
+            }
         ],
-        "year": 2003,
-        "rating": 8.9,
-        "director": "Peter Jackson"
+        "Metascore": "94",
+        "imdbRating": "9.0",
+        "imdbVotes": "2,108,964",
+        "imdbID": "tt0167260",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$381,878,219",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 6,
-        "title": "Forrest Gump",
-        "genre": [
-            "Drama",
-            "Romance"
+        "Title": "Forrest Gump",
+        "Year": "1994",
+        "Rated": "PG-13",
+        "Released": "06 Jul 1994",
+        "Runtime": "142 min",
+        "Genre": "Drama, Romance",
+        "Director": "Robert Zemeckis",
+        "Writer": "Winston Groom, Eric Roth",
+        "Actors": "Tom Hanks, Robin Wright, Gary Sinise",
+        "Plot": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+        "Language": "English",
+        "Country": "United States",
+        "Awards": "Won 6 Oscars. 51 wins & 74 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "75%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "82/100"
+            }
         ],
-        "year": 1994,
-        "rating": 8.8,
-        "director": "Robert Zemeckis"
+        "Metascore": "82",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,422,593",
+        "imdbID": "tt0109830",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$330,455,270",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 7,
-        "title": "Fight Club",
-        "genre": [
-            "Drama"
+        "Title": "Fight Club",
+        "Year": "1999",
+        "Rated": "R",
+        "Released": "15 Oct 1999",
+        "Runtime": "139 min",
+        "Genre": "Crime, Drama, Thriller",
+        "Director": "David Fincher",
+        "Writer": "Chuck Palahniuk, Jim Uhls",
+        "Actors": "Brad Pitt, Edward Norton, Meat Loaf",
+        "Plot": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+        "Language": "English",
+        "Country": "United States, Germany",
+        "Awards": "Nominated for 1 Oscar. 12 wins & 38 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "81%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "67/100"
+            }
         ],
-        "year": 1999,
-        "rating": 8.8,
-        "director": "David Fincher"
+        "Metascore": "67",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,518,290",
+        "imdbID": "tt0137523",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$37,030,102",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 8,
-        "title": "Interstellar",
-        "genre": [
-            "Sci-Fi",
-            "Adventure",
-            "Drama"
+        "Title": "Interstellar",
+        "Year": "2014",
+        "Rated": "PG-13",
+        "Released": "07 Nov 2014",
+        "Runtime": "169 min",
+        "Genre": "Adventure, Drama, Sci-Fi",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan, Christopher Nolan",
+        "Actors": "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+        "Plot": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+        "Language": "English",
+        "Country": "United States, United Kingdom, Canada",
+        "Awards": "Won 1 Oscar. 44 wins & 148 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "73%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
         ],
-        "year": 2014,
-        "rating": 8.6,
-        "director": "Christopher Nolan"
+        "Metascore": "74",
+        "imdbRating": "8.7",
+        "imdbVotes": "2,409,911",
+        "imdbID": "tt0816692",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$203,227,580",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 9,
-        "title": "The Matrix",
-        "genre": [
-            "Action",
-            "Sci-Fi"
+        "Title": "The Matrix",
+        "Year": "1999",
+        "Rated": "R",
+        "Released": "31 Mar 1999",
+        "Runtime": "136 min",
+        "Genre": "Action, Sci-Fi",
+        "Director": "Lana Wachowski, Lilly Wachowski",
+        "Writer": "Lilly Wachowski, Lana Wachowski",
+        "Actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+        "Plot": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        "Language": "English",
+        "Country": "United States, Australia",
+        "Awards": "Won 4 Oscars. 42 wins & 52 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "83%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "73/100"
+            }
         ],
-        "year": 1999,
-        "rating": 8.7,
-        "director": "Lana Wachowski, Lilly Wachowski"
+        "Metascore": "73",
+        "imdbRating": "8.7",
+        "imdbVotes": "2,187,692",
+        "imdbID": "tt0133093",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$172,076,928",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 10,
-        "title": "The Godfather",
-        "genre": [
-            "Crime",
-            "Drama"
+        "Title": "The Godfather",
+        "Year": "1972",
+        "Rated": "R",
+        "Released": "24 Mar 1972",
+        "Runtime": "175 min",
+        "Genre": "Crime, Drama",
+        "Director": "Francis Ford Coppola",
+        "Writer": "Mario Puzo, Francis Ford Coppola",
+        "Actors": "Marlon Brando, Al Pacino, James Caan",
+        "Plot": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "Language": "English, Italian, Latin",
+        "Country": "United States",
+        "Awards": "Won 3 Oscars. 31 wins & 31 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "97%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "100/100"
+            }
         ],
-        "year": 1972,
-        "rating": 9.2,
-        "director": "Francis Ford Coppola"
+        "Metascore": "100",
+        "imdbRating": "9.2",
+        "imdbVotes": "2,160,424",
+        "imdbID": "tt0068646",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$136,381,073",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 11,
-        "title": "Avatar",
-        "genre": [
-            "Sci-Fi",
-            "Adventure"
+        "Title": "The Fast and the Furious",
+        "Year": "2001",
+        "Rated": "PG-13",
+        "Released": "22 Jun 2001",
+        "Runtime": "106 min",
+        "Genre": "Action, Crime, Thriller",
+        "Director": "Rob Cohen",
+        "Writer": "Ken Li, Gary Scott Thompson, Erik Bergquist",
+        "Actors": "Vin Diesel, Paul Walker, Michelle Rodriguez",
+        "Plot": "Los Angeles police officer Brian O'Conner must decide where his loyalty really lies when he becomes enamored with the street racing world he has been sent undercover to end it.",
+        "Language": "English, Spanish",
+        "Country": "United States, Germany",
+        "Awards": "11 wins & 18 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "55%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "58/100"
+            }
         ],
-        "year": 2009,
-        "rating": 8.1,
-        "director": "James Cameron"
+        "Metascore": "58",
+        "imdbRating": "6.8",
+        "imdbVotes": "445,016",
+        "imdbID": "tt0232500",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$144,745,925",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     },
     {
-        "id": 12,
-        "title": "The Fast and the Furious",
-        "genre": [
-            "Action",
-            "Crime",
-            "Thriller"
+        "Title": "Avatar",
+        "Year": "2009",
+        "Rated": "PG-13",
+        "Released": "18 Dec 2009",
+        "Runtime": "162 min",
+        "Genre": "Action, Adventure, Fantasy",
+        "Director": "James Cameron",
+        "Writer": "James Cameron",
+        "Actors": "Sam Worthington, Zoe Salda\u00c3\u00b1a, Sigourney Weaver",
+        "Plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "Language": "English, Spanish",
+        "Country": "United States, United Kingdom",
+        "Awards": "Won 3 Oscars. 91 wins & 131 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDEzMmQwZjctZWU2My00MWNlLWE0NjItMDJlYTRlNGJiZjcyXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.9/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "81%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "83/100"
+            }
         ],
-        "year": 2001,
-        "rating": 6.8,
-        "director": "Rob Cohen"
+        "Metascore": "83",
+        "imdbRating": "7.9",
+        "imdbVotes": "1,448,400",
+        "imdbID": "tt0499549",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$785,221,649",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
     }
 ]

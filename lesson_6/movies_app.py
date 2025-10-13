@@ -1,13 +1,122 @@
 import json
+import uvicorn 
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles                                   
+from html import escape
+from fastapi import Body
+from pathlib import Path
 
-JSON_FILE = "movies_database.json"
+JSON_FILE = "movies_database.json"   
+INDEX_FILE = "templates/index.html"
 
-def read_movie_from_json_file(file_path: str, movie_id: int):
+def movie_card_html(movie: dict) -> str:
+    '''
+    Generate HTML for a movie card
+    Parameters:
+    - movie: dict : movie data
+    Returns:
+    - str : HTML string for the movie card
+    '''
+    # Escape to prevent XSS(Cross-Site Scripting) attacks
+    # Empty string fallbacks for missing fields
+    title = escape(movie.get("Title") or movie.get("title", ""))
+    desc  = escape(movie.get("Plot")  or movie.get("description", ""))
+    img   = movie.get("Poster") or movie.get("image", "")
+    imdb  = movie.get("imdbID") or movie.get("id", "")
+
+    # OMDb sometimes returns "N/A" for Poster
+    img_tag = f'<img src="{img}" alt="{title} poster" class="movie-image" />' if img and img != "N/A" else ""
+
+    return f"""
+      <div class="movie-card">
+        <a href="/movies/{imdb}">
+          {img_tag}
+          <h2>{title}</h2>
+        </a>
+        <p>{desc}</p>
+      </div>
+    """.strip()
+
+def movie_description_html(movie: dict) -> str:
+    '''
+    Generate HTML for a detailed movie description
+    Parameters:
+    - movie: dict : movie data
+    Returns:
+    - str : HTML string for the detailed movie description
+    '''
+    title = escape(movie.get("Title", "Movie Details"))
+    year = escape(movie.get("Year", ""))
+    genre = escape(movie.get("Genre", ""))
+    director = escape(movie.get("Director", ""))
+    poster = escape(movie.get("Poster", ""))
+    plot = escape(movie.get("Plot", "No plot available."))
+    actors = escape(movie.get("Actors", "N/A"))
+    language = escape(movie.get("Language", "N/A"))
+    awards = escape(movie.get("Awards", "N/A"))
+    imdb_rating = escape(movie.get("imdbRating", "N/A"))
+
+    return f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="stylesheet" href="/static/styles.css" />
+        <style>
+            .movie-detail {{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }}
+            .movie-poster {{
+                display: block;
+                margin: 0 auto 20px auto;
+                max-width: 300px;
+                height: auto;
+            }}
+            .movie-info {{
+                max-width: 600px;
+            }}
+            .movie-info ul {{
+                list-style-type: none;
+                padding-left: 0;
+            }}
+        </style>
+    </head>
+    <body>
+        <header class="hero">
+            <h1>{title}</h1>
+            <p>{year} | {genre} | {director}</p>
+        </header>
+        <main class="movie-detail">
+            <img src="{poster}" alt="{title} Poster" class="movie-poster"/>
+            <div class="movie-info">
+                <h2>Plot</h2>
+                <p>{plot}</p>
+                <h2>Details</h2>
+                <ul>
+                    <li><strong>Actors:</strong> {actors}</li>
+                    <li><strong>Language:</strong> {language}</li>
+                    <li><strong>Awards:</strong> {awards}</li>
+                    <li><strong>IMDB Rating:</strong> {imdb_rating}</li>
+                </ul>
+            </div>
+        </main>
+    </body>
+    </html>
+    """.strip()
+
+def read_movie_from_json_file(file_path: str, movie_id: str):
     ''' 
     Read a movie from a JSON file using the movie id
     Parameters:
     - file_path: str : path to the JSON file
-    - movie_id: int : id of the movie to be read
+    - movie_id: str : IMDb id of the movie to be read
     Returns:
     - dict : movie data if found
     '''
@@ -15,7 +124,7 @@ def read_movie_from_json_file(file_path: str, movie_id: int):
         with open(file_path, 'r') as file:
             movies = json.load(file)
             for movie in movies:
-                if movie['id'] == movie_id:
+                if movie['imdbID'] == movie_id:
                     return movie
             raise ValueError("Movie not found")
     except FileNotFoundError:
@@ -51,7 +160,7 @@ def write_movie_to_json_file(file_path: str, movie: dict):
         with open(file_path, 'r+') as file:
             movies = json.load(file)
             for i, m in enumerate(movies):
-                if m['id'] == movie['id']:
+                if m['imdbID'] == movie['imdbID']:
                     movies[i] = movie
                     file.seek(0)
                     json.dump(movies, file, indent=4)
@@ -64,12 +173,12 @@ def write_movie_to_json_file(file_path: str, movie: dict):
     except FileNotFoundError:
         raise FileNotFoundError("File not found")
     
-def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
+def update_movie_in_json_file(file_path: str, movie_id: str, movie: dict):
     '''
     Update a movie data in a JSON file using the movie id
     Parameters:
     - file_path: str : path to the JSON file
-    - movie_id: int : id of the movie to be updated
+    - movie_id: str : IMDb id of the movie to be updated
     - movie: dict : updated movie data
     Returns:
     - dict : updated movie data if found and updated
@@ -78,7 +187,7 @@ def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
         with open(file_path, 'r+') as file:
             movies = json.load(file)
             for i, m in enumerate(movies):
-                if m['id'] == movie_id:
+                if m['imdbID'] == movie_id:
                     movies[i] = movie
                     file.seek(0)
                     json.dump(movies, file, indent=4)
@@ -88,12 +197,12 @@ def update_movie_in_json_file(file_path: str, movie_id: int, movie: dict):
     except FileNotFoundError:
         raise FileNotFoundError("File not found")
 
-def delete_movie_from_json_file(file_path: str, movie_id: int):
+def delete_movie_from_json_file(file_path: str, movie_id: str):
     '''
     Delete a movie data from a JSON file using the movie id
     Parameters:
     - file_path: str : path to the JSON file
-    - movie_id: int : id of the movie to be deleted
+    - movie_id: str : IMDb id of the movie to be deleted
     Returns:
     - dict : deleted movie data if found and deleted
     '''
@@ -101,7 +210,7 @@ def delete_movie_from_json_file(file_path: str, movie_id: int):
         with open(file_path, 'r+') as file:
             movies = json.load(file)
             for i, m in enumerate(movies):
-                if m['id'] == movie_id:
+                if m['imdbID'] == movie_id:
                     deleted_movie = movies.pop(i)
                     file.seek(0)
                     json.dump(movies, file, indent=4)
@@ -111,38 +220,68 @@ def delete_movie_from_json_file(file_path: str, movie_id: int):
     except FileNotFoundError:
         raise FileNotFoundError("File not found")
 
-from fastapi import FastAPI
-import uvicorn
-
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to Nithin-flix"}
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    ''' Home page '''
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/movies")
-def get_movies():
-    ''' Read all movies '''
-    return read_all_movies_from_json_file(JSON_FILE)
+def show_movies(request: Request):
+    ''' Show all movies '''
+    movies = read_all_movies_from_json_file(JSON_FILE)
+    # Generate HTML for all movie cards
+    # Join them into a single string
+    movie_cards = ''.join([movie_card_html(movie) for movie in movies])
+    
+    # Render index.html and inject movie_cards into it
+    index_path = Path(INDEX_FILE)
+    if not index_path.exists():
+        return HTMLResponse(content="index.html not found", status_code=404)
+
+    with open(index_path, "r", encoding="utf-8") as f:
+        index_html = f.read()
+
+    # Replace a placeholder in index.html with movie_cards
+    # The placeholder is ***Movie Cards*** in the HTML file
+    html_content = index_html.replace("***Movie Cards***", movie_cards)
+    return HTMLResponse(content=html_content, status_code=200)
 
 @app.get("/movies/{movie_id}")
-def get_movie(movie_id: int):
-    ''' Read a movie by id '''
-    return read_movie_from_json_file(JSON_FILE, movie_id)
+def show_movie_id(request: Request, movie_id: str):
+    ''' Show a movie by id '''
+    try:
+        movie = read_movie_from_json_file(JSON_FILE, movie_id)
+    except ValueError:
+        return HTMLResponse(content="Movie not found", status_code=404)
+    # Generate HTML for the movie description
+    html_content = movie_description_html(movie)
+    return HTMLResponse(content=html_content, status_code=200)
 
 @app.post("/movies")
-def create_movie(movie: dict):
-    ''' Create a movie '''
+def add_movie(movie: dict = Body(...)):
+    ''' Add a new movie '''
     return write_movie_to_json_file(JSON_FILE, movie)
 
 @app.put("/movies/{movie_id}")
-def update_movie(movie_id: int, movie: dict):
+def update_movie(movie_id: str, movie: dict = Body(...)):
     ''' Update a movie by id '''
+    try:
+        read_movie_from_json_file(JSON_FILE, movie_id)
+    except ValueError:
+        return HTMLResponse(content="Movie not found", status_code=404)
     return update_movie_in_json_file(JSON_FILE, movie_id, movie)
 
 @app.delete("/movies/{movie_id}")
-def delete_movie(movie_id: int):
+def delete_movie(movie_id: str):
     ''' Delete a movie by id '''
+    try:
+        read_movie_from_json_file(JSON_FILE, movie_id)
+    except ValueError:
+        return HTMLResponse(content="Movie not found", status_code=404)
     return delete_movie_from_json_file(JSON_FILE, movie_id)
 
 if __name__ == "__main__":
