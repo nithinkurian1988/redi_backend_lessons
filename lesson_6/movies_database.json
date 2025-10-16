@@ -448,7 +448,7 @@
         "Genre": "Action, Adventure, Fantasy",
         "Director": "James Cameron",
         "Writer": "James Cameron",
-        "Actors": "Sam Worthington, Zoe Salda\u00c3\u00b1a, Sigourney Weaver",
+        "Actors": "Sam Worthington, Zoe Salda\u00f1a, Sigourney Weaver",
         "Plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
         "Language": "English, Spanish",
         "Country": "United States, United Kingdom",
@@ -475,6 +475,150 @@
         "Type": "movie",
         "DVD": "N/A",
         "BoxOffice": "$785,221,649",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Warfare",
+        "Year": "2025",
+        "Rated": "R",
+        "Released": "11 Apr 2025",
+        "Runtime": "95 min",
+        "Genre": "Action, Drama, War",
+        "Director": "Alex Garland, Ray Mendoza",
+        "Writer": "Ray Mendoza, Alex Garland",
+        "Actors": "D'Pharaoh Woon-A-Tai, Will Poulter, Cosmo Jarvis",
+        "Plot": "A platoon of Navy SEALs embark on a dangerous mission in Ramadi, Iraq, with the chaos and brotherhood of war retold through their memories of the event.",
+        "Language": "English",
+        "Country": "United States, United Kingdom",
+        "Awards": "3 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYzEyYjE1NmEtOTFmNy00ZmQxLThlYzctOGRjNmQ0N2VjMmNmXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "92%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "78/100"
+            }
+        ],
+        "Metascore": "78",
+        "imdbRating": "7.2",
+        "imdbVotes": "75,855",
+        "imdbID": "tt31434639",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$26,000,309",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Blade Runner",
+        "Year": "1982",
+        "Rated": "R",
+        "Released": "25 Jun 1982",
+        "Runtime": "117 min",
+        "Genre": "Action, Drama, Sci-Fi",
+        "Director": "Ridley Scott",
+        "Writer": "Hampton Fancher, David Webb Peoples, Philip K. Dick",
+        "Actors": "Harrison Ford, Rutger Hauer, Sean Young",
+        "Plot": "A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
+        "Language": "English, German, Cantonese, Japanese, Hungarian, Arabic, Korean",
+        "Country": "United States, United Kingdom, Hong Kong",
+        "Awards": "Nominated for 2 Oscars. 13 wins & 22 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "89%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "84/100"
+            }
+        ],
+        "Metascore": "84",
+        "imdbRating": "8.1",
+        "imdbVotes": "865,523",
+        "imdbID": "tt0083658",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$32,914,489",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Lauf um Dein Leben - Vom Junkie zum Ironman",
+        "Year": "2008",
+        "Rated": "N/A",
+        "Released": "24 Apr 2008",
+        "Runtime": "96 min",
+        "Genre": "Biography, Drama, Sport",
+        "Director": "Adnan K\u00f6se",
+        "Writer": "Fritjof Hohagen, Adnan K\u00f6se",
+        "Actors": "Max Riemelt, Jasmin Schwiers, Uwe Ochsenknecht",
+        "Plot": "He lived the junkie's life as a heroin addict. Triathlon transformed him. Biopic of the record breaking Ironman Andreas Niedrig.",
+        "Language": "German",
+        "Country": "Germany",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYzA3YjNjZDAtYWU2MC00YmIyLTkzMjEtOGE5YmIyZmYxODIzXkEyXkFqcGc@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.0/10"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "6.0",
+        "imdbVotes": "265",
+        "imdbID": "tt0954542",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "N/A",
+        "Production": "StudioCanal",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Simba",
+        "Year": "1955",
+        "Rated": "Approved",
+        "Released": "09 Sep 1955",
+        "Runtime": "99 min",
+        "Genre": "Adventure, Drama",
+        "Director": "Brian Desmond Hurst",
+        "Writer": "Anthony Perry, John Baines, Robin Estridge",
+        "Actors": "Dirk Bogarde, Virginia McKenna, Basil Sydney",
+        "Plot": "A European family in East Africa finds itself caught up in an uprising by local black Africans against their white colonial masters. Based on the Mau-Mau rebellion in Kenya in the early 1950s.",
+        "Language": "English",
+        "Country": "United Kingdom",
+        "Awards": "Nominated for 4 BAFTA 4 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTIzODYyMjI4Ml5BMl5BanBnXkFtZTYwODExMjg5._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "6.1/10"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "6.5",
+        "imdbVotes": "474",
+        "imdbID": "tt0048620",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "N/A",
         "Production": "N/A",
         "Website": "N/A",
         "Response": "True"
