@@ -111,7 +111,7 @@ def main():
     else:
         print("Error! cannot create the database connection.")
 
-    # insert a new driver
+    # insert drivers
     with conn:
         drivers = [
             ('andrew', 'munich', 'free'),
@@ -126,7 +126,7 @@ def main():
             if driver_id:
                 print(f'Driver added with id: {driver_id}')
 
-    # find free driver in munich
+    # find free drivers in munich
     print("Free drivers in munich:")
     find_free_drivers(conn, 'munich')
 
