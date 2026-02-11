@@ -50,14 +50,13 @@ def movie_card_html(movie: dict) -> str:
     # Empty string fallbacks for missing fields
     title = escape(movie.get("Title") or movie.get("title", ""))
     img   = movie.get("Poster") or movie.get("image", "")
-    imdb  = movie.get("imdbID") or movie.get("id", "")
 
     # OMDb sometimes returns "N/A" for Poster
     img_tag = f'<img src="{img}" alt="{title} poster" class="movie-image" />' if img and img != "N/A" else ""
 
     return f"""
       <div class="movie-card">
-        <a href="/movies/{imdb}">
+        <a href="/movies/{title}">
           {img_tag}
           <h2>{title}</h2>
         </a>
@@ -284,32 +283,20 @@ def show_movies(request: Request):
 
     return HTMLResponse(content=html_content, status_code=200)
 
-@app.get("/movies/{movie_id}")
-def show_movie_id(request: Request, movie_id: str):
-    ''' Show a movie by id '''
-    movie = read_movie_from_json_file(JSON_FILE, movie_id)
-    if not movie:
-        # If movie not found in the database, fetch from OMDb API
-        movie = fetch_movie_using_id_from_OMDb(movie_id)
-        if not movie or movie.get("Response") == "False":
-            return HTMLResponse(content="Movie not found", status_code=404)
-        # Save the fetched movie to the database
-        write_movie_to_json_file(JSON_FILE, movie)
-        # Append the new movie to the movies HTML file
-        output_path = Path(GENERATED_HTML_FILE)
-        if output_path.exists():
-            with open(output_path, "r", encoding="utf-8") as f:
-                existing_html = f.read()
-            # Insert the new movie card before the closing </div> of movie-container
-            new_movie_card = movie_card_html(movie)
-            updated_html = existing_html.replace("</div>\n    </main>", f"{new_movie_card}\n        </div>\n    </main>")
-            with open(output_path, "w", encoding="utf-8") as f:
-                f.write(updated_html)
-
-    # Generate HTML for the movie description
-    html_content = movie_description_html(movie)
-
-    return HTMLResponse(content=html_content, status_code=200)
+@app.get("/movies/{movie_name}")
+def get_movie(movie_name: str):
+    ''' Get a movie by name '''
+    # First try to get the movie from the JSON file. If not found
+    # fetch it from OMDb API and save it to the JSON file
+    movies = read_all_movies_from_json_file(JSON_FILE)
+    for movie in movies:
+        if movie['Title'].lower() == movie_name.lower():
+            return HTMLResponse(content=movie_description_html(movie), status_code=200)
+    movie = fetch_movie_using_title_from_OMDb(movie_name)
+    if not movie or movie.get("Response") == "False":
+        return HTMLResponse(content="Movie not found", status_code=404)
+    saved_movie = write_movie_to_json_file(JSON_FILE, movie)
+    return HTMLResponse(content=movie_description_html(saved_movie), status_code=200)
 
 @app.post("/movies")
 def add_movie(request: Request):
@@ -375,36 +362,38 @@ def update_movie(movie: dict = Body(...)):
 
     return update_movie_in_json_file(JSON_FILE, movie_id, movie)
 
-@app.delete("/movies")
-def delete_movie(request: Request):
-    ''' Delete a movie by id using query parameter i '''
-    movie_id = request.query_params.get("i", "")
-    if not movie_id or not movie_id.strip():
-        return HTMLResponse(content="Invalid movie id", status_code=400)
-    movie_id = movie_id.strip()
-
-    movie_exists = read_movie_from_json_file(JSON_FILE, movie_id)
-    if not movie_exists:
+@app.delete("/movies/{movie_name}")
+def delete_movie(movie_name: str):
+    ''' Delete a movie by name '''
+    movies = read_all_movies_from_json_file(JSON_FILE)
+    movie_to_delete = None
+    for movie in movies:
+        if movie['Title'].lower() == movie_name.lower():
+            movie_to_delete = movie
+            break
+    if not movie_to_delete:
         return HTMLResponse(content="Movie not found", status_code=404)
     
-    # Remove the movie card from the movies HTML file
+    deleted_movie = delete_movie_from_json_file(JSON_FILE, movie_to_delete['imdbID'])
+    
+    # Remove the deleted movie card from the movies HTML file
     output_path = Path(GENERATED_HTML_FILE)
     if output_path.exists():
         with open(output_path, "r", encoding="utf-8") as f:
             existing_html = f.read()
         # Find the existing movie card by searching for the movie ID in the href
-        start_index = existing_html.find(f'/movies/{movie_id}')
+        start_index = existing_html.find(f'/movies/{movie_to_delete["imdbID"]}')
         if start_index != -1:
             # Find the start of the movie card div
             card_start = existing_html.rfind('<div class="movie-card">', 0, start_index)
             # Find the end of the movie card div
             card_end = existing_html.find('</div>', start_index) + len('</div>')
-            # Remove the existing movie card
+            # Remove the existing movie card from the HTML
             updated_html = existing_html[:card_start] + existing_html[card_end:]
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(updated_html)
 
-    return delete_movie_from_json_file(JSON_FILE, movie_id)
+    return deleted_movie
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
